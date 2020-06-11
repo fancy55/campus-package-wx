@@ -1,0 +1,79 @@
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+  params: count=countSql
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 500MB
+
+    redis:
+      port: 6379
+      host: 47.104.191.228
+      timeout: 1000
+      password: 1234567abcd
+    session:
+      store-type: none
+
+  datasource:
+    username: root
+    password: 1234567abcd~@A
+    url: jdbc:mysql://47.104.191.228:3306/pack?serverTimezone=UTC&userUnicode=true&characterEncoding=utf-8
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+    initialSize: 5
+    minIdle: 5
+    maxActive: 20
+    maxWait: 60000
+    timeBetweenEvictionRunsMillis: 60000
+    minEvictableIdleTimeMillis: 300000
+    validationQuery: SELECT 1 FROM DUAL
+    testWhileIdle: true
+    testOnBorrow: false
+    testOnReturn: false
+    poolPreparedStatements: true
+
+  mvc:
+    throw-exception-if-no-handler-found: true
+
+  application:
+    name: qly_pack
+
+ok:
+  http:
+    connectTimeout: 30
+    readTimeout: 30
+    writeTimeout: 30
+    maxIdleConnections: 200
+    keepAliveDuration: 300
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+server:
+  port: 8085
+
+aliyun:
+  sms:
+    accessKeyId: LTAI4FnQdT9vSMkD11u2hw5P
+    accessKeySecret: WFtmQ6A3z7f6cP6x5mlqU4vXBXgWI8
+    templateCode: SMS_183767732
+    signName: 快递代领小程序
+
+  card:
+    appSecret: ha4w17wiqpo6f8x5e8pkmedhwos326m7
+    appCode: a3b7c145592f4464a5c8fdfe74ba5d0b
+    host: https://zid.market.alicloudapi.com
+    path: /idcard/VerifyIdcardv2
+    method: GET
+
+photo:
+  info:
+    url: http://www.qlybit.xyz:8089/pack/
+    path: /root/vr/pack/
+    type: .png
